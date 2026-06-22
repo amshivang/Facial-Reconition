@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+models/
+temp/
+output/
+test_output/
+*.mp4
+*.png
+*.jpg
+results.json
+.streamlit/
