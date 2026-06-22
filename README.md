@@ -2,7 +2,7 @@
 
 A high-performance, secure, 100% on-device facial recognition application designed to scan security camera footage and identify timestamps when a target person is present. 
 
-Developed with a privacy-first architecture, this tool does not connect to the cloud or make external API requests, making it compliant with strict chain-of-custody and confidentiality protocols for law enforcement agencies.
+Developed with a privacy-first architecture, this tool does not connect to the cloud or make external API requests, making it compliant with strict chain-of-custody and confidentiality protocols.
 
 ---
 

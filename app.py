@@ -68,7 +68,7 @@ st.markdown("""
 
 # Title
 st.title("🔍 Offline Facial Recognition Video Analyzer")
-st.markdown("##### Designed for secure, on-device law enforcement and surveillance video scanning.")
+st.markdown("##### Designed for secure, on-device surveillance video scanning.")
 
 # Initialize the analyzer
 @st.cache_resource
