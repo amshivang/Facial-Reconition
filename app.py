@@ -100,32 +100,11 @@ if "target_embedding" not in st.session_state:
 if "prev_gray_frame" not in st.session_state:
     st.session_state.prev_gray_frame = None
 
-# Sidebar Settings
-st.sidebar.title("⚙️ Scan Settings")
-
-# 80% accuracy settings made permanent as defaults:
-# - Similarity Threshold: 0.31 (better recall under challenging lighting/angles)
-similarity_threshold = st.sidebar.slider(
-    "Similarity Threshold (SFace Cosine)",
-    min_value=0.20,
-    max_value=1.00,
-    value=0.31,  # Set default to 0.31 for optimized 80% accuracy in real-world situations
-    step=0.01,
-    help="Optimized for 80% accuracy: 0.31 balances detection under tough angles/lighting and false positives."
-)
-
-sample_rate_fps = st.sidebar.slider(
-    "Frame Sampling Rate (FPS)",
-    min_value=0.5,
-    max_value=10.0,
-    value=2.0,  # Permanent default
-    step=0.5,
-    help="How many frames to check per second of video."
-)
-
-st.sidebar.subheader("Filters")
-enable_motion_filter = st.sidebar.checkbox("Enable Motion Gating", value=True)
-motion_threshold = st.sidebar.slider("Motion Threshold (Sensitivity)", min_value=1, max_value=50, value=15, disabled=not enable_motion_filter)
+# Fixed 80% accuracy settings (applied silently in background)
+similarity_threshold = 0.31
+sample_rate_fps = 2.0
+enable_motion_filter = True
+motion_threshold = 15
 
 # Main Interface Grid
 col_inputs, col_target = st.columns([2, 1])
