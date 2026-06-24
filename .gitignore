@@ -8,3 +8,7 @@ test_output/
 *.jpg
 results.json
 .streamlit/
+build/
+dist/
+executable/
+*.spec

@@ -11,7 +11,7 @@ Developed with a privacy-first architecture, this tool does not connect to the c
 For the easiest experience on Windows, you can download the pre-compiled standalone executable. This packages the GUI, Python runtime, OpenCV processing library, and the AI models into a single file that runs fully offline without any configuration.
 
 ### How to Download & Run:
-1. Go to the **[Releases](https://github.com/amshivang/Facial-Reconition/releases)** section of this repository.
+1. Go to the **[Releases](https://github.com/amshivang/Facial-Recognition/releases)** section of this repository.
 2. Download the latest `video_ai.exe`.
 3. Double-click the file to launch the application.
    *(Note: Since it is an unsigned executable, Windows SmartScreen may show a warning. Click **More Info** -> **Run anyway** to start it).*
@@ -29,17 +29,6 @@ For the easiest experience on Windows, you can download the pre-compiled standal
 
 ---
 
-## Tech Stack
-
-- **Desktop UI:** CustomTkinter (Fluent-like native Windows GUI).
-- **Web UI:** Streamlit (local browser dashboard).
-- **Core Processing:** Python 3.10+ & OpenCV.
-- **Face Detection:** YuNet (via OpenCV FaceDetectorYN).
-- **Face Recognition:** SFace (via OpenCV FaceRecognizerSF).
-- **GPU Inference Engine:** ONNX Runtime GPU (CUDA/TensorRT).
-
----
-
 ## Developer Installation & Setup
 
 If you prefer to run the application from source code or modify it, follow these setup steps:
@@ -48,50 +37,37 @@ If you prefer to run the application from source code or modify it, follow these
 - **Python 3.10 to 3.14** installed.
 - (Optional) **NVIDIA GPU** with CUDA Toolkit (v11.8 or v12.x/v13.x) & cuDNN installed for hardware acceleration.
 
-### 2. Clone and Setup
-Clone this repository to your local directory:
-```bash
-git clone https://github.com/amshivang/Facial-Reconition.git
-cd Facial-Reconition
+### 2. Run from Source (Step-by-Step Commands)
+
+Choose the block of commands corresponding to your terminal and copy-paste them to set up and run the application:
+
+#### 💻 Windows (Command Prompt - cmd)
+```cmd
+git clone https://github.com/amshivang/Facial-Recognition.git
+cd Facial-Recognition
+python -m venv .venv
+call .venv\Scripts\activate.bat
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-Create a virtual environment and activate it:
-*   **Windows (PowerShell):**
-    ```powershell
-    python -m venv .venv
-    .venv\Scripts\activate
-    ```
-*   **Linux / macOS:**
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    ```
-
-Install the dependencies:
+#### 🐧 Linux / macOS (Terminal)
 ```bash
+git clone https://github.com/amshivang/Facial-Recognition.git
+cd Facial-Recognition
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+streamlit run app.py
 ```
 
 ---
 
-## Running the Application from Source
+## How to Use the Web Dashboard
 
-You have two options when running from source:
-
-### Option A: Launch the Desktop GUI
-Run the native Windows desktop app:
-```bash
-python gui.py
-```
-
-### Option B: Launch the Web Dashboard
-Launch the local web dashboard:
-```bash
-streamlit run app.py
-```
 The interface will automatically open in your default browser at `http://localhost:8501`.
 
-### How to use it:
-1. **Choose a Target Photo:** Click "Choose Target Photo" and select an image of the person you want to find. It will show a cropped preview of the detected target face.
-2. **Choose a Video File:** Click "Choose Video File" and select your surveillance video.
-3. **Start Analysis:** Click **Start Video Analysis**. The live feed will display the scanning in progress. When the target face matches, the scan will pause for verification. Click **Continue Scan** to resume searching.
+1. **Choose a Target Photo:** Upload a photo of the target individual, or input their local absolute file path.
+2. **Choose a Video File:** Provide the absolute path to your security recording on your SSD (highly recommended for multi-gigabyte surveillance recordings to prevent browser memory overflows).
+3. **Configure Settings:** Keep the default settings (Threshold: `0.31`, Sampling: `2.0 FPS`, Motion Filter: `ON`) for the pre-configured 80% accuracy scan.
+4. **Click "Start Video Analysis":** The scanner will run, showing a live frame feed. When the target person is found, it will pause and display the matches. Click **Continue Scan** to keep searching.
